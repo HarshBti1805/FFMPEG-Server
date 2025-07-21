@@ -9,6 +9,11 @@ ffmpeg.setFfmpegPath(ffmpegPath);
 
 const app = express();
 
+// testing route
+app.get("/", (req, res) => {
+  return res.json({ message: "FFMPEG Server is Working", status: 200 });
+});
+
 // Raw audio buffer parsers
 app.use("/convert", express.raw({ type: "audio/wav", limit: "50mb" }));
 app.use("/convert-to-opus", express.raw({ type: "audio/ogg", limit: "50mb" }));
